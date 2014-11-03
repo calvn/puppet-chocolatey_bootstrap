@@ -3,7 +3,9 @@ class chocolatey-bootstrap (
 ) {
   exec { "Install chocolatey":
     creates  => 'C:\ProgramData\chocolatey',
-    command  => "iex ((new-object net.webclient).DownloadString(\'#{script_url}\'))",
+    command  => "iex ((new-object net.webclient).DownloadString(\'${script_url}\'))",
     provider => powershell
   }
+
+  include chocolatey
 }
