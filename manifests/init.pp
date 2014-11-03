@@ -1,4 +1,4 @@
-class chocolatey-bootstrap (
+class chocolatey_bootstrap (
   $script_url = "https://chocolatey.org/install.ps1"
 ) {
   exec { "Install chocolatey":
