@@ -6,6 +6,4 @@ class chocolatey_bootstrap (
     command  => "iex ((new-object net.webclient).DownloadString(\'${script_url}\'))",
     provider => powershell
   }
-
-  include chocolatey
 }
