@@ -4,7 +4,7 @@ class chocolatey_bootstrap (
 ) {
   exec { "Install chocolatey":
     creates  => 'C:\ProgramData\chocolatey',
-    command  => "iex ((new-object net.webclient).DownloadString(\'${script_url}\')) $extra_options",
+    command => "\$temp = Join-Path \$env:TEMP \'chocoscript.ps1\'; ((new-object net.webclient).DownloadFile(\'${script_url}\', \$temp)); iex \"\$temp ${extra_options}\" ",
     provider => powershell
   }
 }
